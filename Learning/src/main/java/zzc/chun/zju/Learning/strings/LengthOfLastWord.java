@@ -30,15 +30,22 @@ public class LengthOfLastWord {
 		
         Scanner sc = new Scanner(System.in);
         
+        //去掉字符串末尾空格
         String s = sc.nextLine().trim();
+        
+        //及时关闭输入流
         sc.close();
+        
+        //最后一个单词长度，默认未0
         int len = 0;
         
+        //若字符串长度为0， 或者字符串未NULL，则返回0
         if(s.length() == 0 || s.equals("NULL")){
             len = 0;
             return;
         }
-                
+        
+        //从后向前便利字符串
         for(int i = s.length() - 1; i >= 0; i --){
             if(s.charAt(i) == ' '){
                 len = s.length() - i - 1;
