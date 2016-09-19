@@ -18,8 +18,7 @@ public class Test {
 	* @throws
 	*/
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(17 % 8);
+		System.out.println(5 % 8);
 		
 		String string = "asdfgfd";
 		System.out.println(string.substring(0, 3) + "          " + string);
