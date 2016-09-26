@@ -21,7 +21,7 @@ public class Test {
 		System.out.println(5 % 8);
 		
 		String string = "asdfgfd";
-		System.out.println(string.substring(0, 3) + "          " + string);
+		System.out.println(string.substring(0, 3) + "             " + string);
 	}
 
 }
