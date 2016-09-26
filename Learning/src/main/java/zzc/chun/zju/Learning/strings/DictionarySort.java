@@ -62,6 +62,7 @@ public class DictionarySort {
 		
 		scanner.close();
 		
+		//this is dictionary sort
 		Collections.sort(set);
 		
 		for(String s : set){
