@@ -1,5 +1,10 @@
 package zzc.chun.zju.Learning.strings;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
 * @ClassName: Test  
 * @author Captain Zhang   
@@ -18,10 +23,32 @@ public class Test {
 	* @throws
 	*/
 	public static void main(String[] args) {
-		System.out.println(5 % 8);
+		System.out.println((int)'b');
+		
+		System.out.println((char)98);
+		
+		System.out.println(5 / 8);
+		System.out.println(7 / 8);
 		
 		String string = "asdfgfd";
 		System.out.println(string.substring(0, 3) + "          " + string);
+		
+		System.out.println(1 << 5);
+		
+		Set<String> set = new TreeSet<String>();
+		
+		set.add("c");
+		set.add("a");
+		set.add("a");
+		set.add("b");
+		for(String s:set){
+			System.out.println(s);
+		}
+		
+		String a = "abc";
+		System.out.println(a.substring(0,1) + "a   aaa");
+		
 	}
 
 }
+
