@@ -45,6 +45,7 @@ public class Test {
 			System.out.println(s);
 		}
 		
+		//aaaa
 		String a = "abc";
 		System.out.println(a.substring(0,1) + "a   aaa");
 		
