@@ -81,9 +81,19 @@ public class PwdValid {
 				continue;
 			}
 			
-			
+			String subString ;
+			for(int i = 0; i < val.length() - 3; i++){
+				subString = val.substring(i, i + 3);
+				if(val.substring(i + 3).contains(subString)){
+					System.out.println("NG");
+					continue;
+				}
+			}
+			System.out.println("OK");
 		}
-
+		
+		scanner.close();
 	}
 
 }
+
