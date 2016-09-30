@@ -1,8 +1,6 @@
 package zzc.chun.zju.Learning.strings;
 
-import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.TreeSet;
 
 /**
@@ -31,6 +29,7 @@ public class RandomSort {
 				System.out.println(i);
 			}
 		}
+		sc.close();
 	}
 }
 

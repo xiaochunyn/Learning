@@ -1,6 +1,5 @@
 package zzc.chun.zju.Learning.strings;
 
-import java.sql.SQLNonTransientConnectionException;
 import java.util.Scanner;
 
 /**
