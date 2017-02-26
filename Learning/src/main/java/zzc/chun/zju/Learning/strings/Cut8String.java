@@ -51,17 +51,47 @@ public class Cut8String {
 
 	public static void main(String[] args){
 		
-		String[] arr = new String[2];
+		// String[] arr = new String[2];
 		
-		Scanner scanner = new Scanner(System.in);
+		// Scanner scanner = new Scanner(System.in);
 		
-		for(int i = 0; i < 2; i++){
-			arr[i] = scanner.nextLine();			
-		}
+		// for(int i = 0; i < 2; i++){
+		// 	arr[i] = scanner.nextLine();			
+		// }
 
-		scanner.close();
+		// scanner.close();
 		
-		System.out.println(converts(arr));
+		// System.out.println(converts(arr));
+
+
+		Scanner sc = new Scanner(System.in);
+        String[] val = new String[2];
+        while(sc.hasNext()){
+			val[0] = sc.nextLine();
+            val[1] = sc.nextLine();           
+        }
+
+        sc.close();
+        
+
+        for(int i = 0; i < 2; i ++){
+            StringBuilder sb = new StringBuilder(val[i]);
+
+            if(sb.length() % 8 != 0){
+            	int count = 8 - sb.length() % 8;
+                for(int k = 0; k < count; k ++){
+                	sb.append("0");                   
+                }
+                
+            }
+            
+            int pos = 0;
+            for(int j = 0; j < sb.length() / 8; j ++){
+                System.out.println(sb.substring(pos, pos + 8));
+                pos += 8;
+                System.out.println("Pos" + pos);
+            }
+        }
 		
 	}
 	
