@@ -48,7 +48,7 @@ import java.util.Scanner;
 * 2 5 9 
 * 4 8 
 * 7 
-*  
+* z
 */
 public class SerpentineMatrix {
 

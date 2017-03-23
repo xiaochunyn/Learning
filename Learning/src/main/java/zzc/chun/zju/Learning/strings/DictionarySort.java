@@ -1,10 +1,10 @@
 package zzc.chun.zju.Learning.strings;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Vector;
-
+// import java.util.Collections;
+// import java.util.List;
+// import java.util.Scanner;
+// import java.util.Vector;
+import java.util.*;
 /**
 * @ClassName: DictionarySort  
 * @author Captain Zhang   
@@ -47,27 +47,45 @@ import java.util.Vector;
 	up
 	
 */
-public class DictionarySort {
+// public class DictionarySort {
 
+// 	public static void main(String[] args){
+// 		Scanner scanner = new Scanner(System.in);
+		
+// 		List<String> set = new Vector<String>();
+// 		//The number of strings
+// 		int n = scanner.nextInt();
+		
+// 		for(int i = 0; i <= n; i++){
+// 			set.add(scanner.nextLine());
+// 		}
+		
+// 		scanner.close();
+		
+// 		//this is dictionary sort
+// 		Collections.sort(set);
+		
+// 		for(String s : set){
+// 			System.out.println(s);
+// 		}
+		
+// 	}
+// }
+
+
+public class DictionarySort {
 	public static void main(String[] args){
-		Scanner scanner = new Scanner(System.in);
-		
-		List<String> set = new Vector<String>();
-		//The number of strings
-		int n = scanner.nextInt();
-		
-		for(int i = 0; i <= n; i++){
-			set.add(scanner.nextLine());
+		Scanner sc = new Scanner(System.in);
+		int count = sc.nextInt();
+		List<String> list = new ArrayList<String>();
+		for(int i = 0; i < count; i++){
+			String t = sc.nextLine();
+			list.add(t);
+			System.out.println(t + "			*******  "+i+"  ******") ;
 		}
-		
-		scanner.close();
-		
-		//this is dictionary sort
-		Collections.sort(set);
-		
-		for(String s : set){
+		Collections.sort(list);
+		for(String s : list){
 			System.out.println(s);
 		}
-		
 	}
 }
