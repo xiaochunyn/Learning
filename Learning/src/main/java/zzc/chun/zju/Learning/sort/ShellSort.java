@@ -5,38 +5,33 @@ package zzc.chun.zju.Learning.sort;
  */
 public class ShellSort {
     public static void main(String[] args){
-//        System.out.println(Math.ceil(3));
-//        System.out.println(3/2);
-//        System.out.println(5/2);
 
-        int a[] = {1, 54, 6, 3, 78, 34, 12, 45, 56, 100};
-        int d = a.length;
-        // int i, j, tmp;
+        int a[] = {4, 2, 5, 7, 3, 9, 6, 8};
 
-        while(true){
+        shellSort(a);
 
-            //int d = (int)Math.ceil(a.length / 2);
-            d = (int)Math.ceil(d / 2);
-            System.out.println("d is :"  + d);
-            for(int i = 0; i < d; i++){
-
-                for(int j = i + d; j < a.length; j += d){
-                    int tmp = a[j];
-                    int k = j - d;
-                    for(; k >= 0 && a[k] > tmp; k -= d){
-                        a[k + d] = a[k];
-                    }
-                    a[k + d] = tmp;
-                }
-            }
-
-            if(d == 1){
-                break;
-            }
-        }
         for(int i = 0; i < a.length; i++){
             System.out.print(a[i] + " ");
         }
 
+        System.out.println("\n************************************************");
+
     }
+
+    private static void shellSort(int[] a){
+        int gap = a.length;
+        int tmp;
+
+        for(gap = gap / 2; gap > 0; gap /= 2){
+            for(int i = gap; i < a.length; i ++){
+                for(int j = i - gap; j >= 0 && a[j] > a[j + gap]; j -= gap){
+                    tmp = a[j];
+                    a[j] = a[j + gap];
+                    a[j + gap] = tmp;
+                }
+
+            }
+        }
+    }
+
 }
