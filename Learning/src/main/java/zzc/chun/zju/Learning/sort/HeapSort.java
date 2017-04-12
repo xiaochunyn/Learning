@@ -6,10 +6,9 @@ public class HeapSort {
 
 	public static void main(String[] args) {
 
-		int[] a = {16,14,10,8,7,9,3,2,4,1,0};
+		int[] a = {16,14,10,8,7,9,78,3,2,4,1,0,34};
 		sort(a);
-		System.out.println(Arrays.toString(a));
-		
+		System.out.println(Arrays.toString(a));		
 	}
 	
 	private static void swap(int[] a, int i, int j){
@@ -20,7 +19,6 @@ public class HeapSort {
 	
 	private static void buildMaxHeap(int[] a){
 		int iParent = (int)Math.floor(a.length / 2) - 1;
-		System.out.println("iParent   " + iParent);
 		for(int i = iParent; i >= 0; i--){
 			maxHeapify(a, i, a.length);
 		}
@@ -34,10 +32,8 @@ public class HeapSort {
 			iLeft = 2 * index + 1;
 			iRight = 2 * (index + 1);
 			
-			System.out.println("iMax:  " + iMax + "  iLeft:  " + iLeft + "  iRight:  " + iRight);
-			
 			//找出左右节点中较大的值
-			if(iLeft < heapsize && a[index] < a[iLeft]){
+			if(iLeft < heapsize && a[iMax] < a[iLeft]){
 				iMax = iLeft;
 			}
 			if(iRight < heapsize && a[iMax] < a[iRight]){
@@ -49,10 +45,8 @@ public class HeapSort {
 				index = iMax;
 			}else {
 				break;
-			}
-			
-		}
-		
+			}			
+		}		
 	}
 	
 	private static void sort(int[] a){
