@@ -26,11 +26,15 @@ import java.util.*;
 *	6
 * 
 * 	思想:java的Math里面有三个函数，1.Math.ceil()表示向上取值Math.ceil(25.9)；  //26  
+*								                     Math.ceil(25.1), output is 26
 *
 *	 2.Math.floor()表示向下取值Math.floor(25.9);// 25
 *	
 *	 3.Marh.round()表示四舍五入取值Math.floor(25.9);// 26
-*
+*	
+*	 4.If parse a double value to Int, just like Math.floor().
+*			System.out.println((int)25.9), Output is 25
+*fkgY31FLn9uI
 */
 public class ApproximateVale {
 
@@ -38,10 +42,17 @@ public class ApproximateVale {
 		Scanner sc = new Scanner(System.in);
 		
 		float val = sc.nextFloat();
+
+		System.out.println(getResult(val));
 		
 		System.out.println(Math.round(val));
 		
 		sc.close();
 		
+	}
+
+	private static int getResult(float val){
+		int intVal = (int)val;
+		return val - intVal >= 0.5 ? intVal + 1 : intVal; 
 	}
 }
