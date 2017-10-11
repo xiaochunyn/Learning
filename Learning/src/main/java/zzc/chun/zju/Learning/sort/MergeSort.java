@@ -40,7 +40,8 @@ public class MergeSort {
 		while (j <= n) {
 			tmp[k++] = a[j++];			
 		}
-		
+
+		// 将中间数组中的内容复制回原数组
 		for(i = 0; i < k; i++){
 			a[left + i] = tmp[i];
 		}
