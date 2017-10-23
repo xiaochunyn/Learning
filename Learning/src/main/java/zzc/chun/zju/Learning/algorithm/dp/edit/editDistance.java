@@ -16,6 +16,11 @@ package zzc.chun.zju.Learning.algorithm.dp.edit;
     则有增加一个字符，f(i,j)=f(i-1,j)+1
     删除一个字符(s1删除一个字符)，f(i,j)=f(i,j-1)+1
     修改字符时，如果s1(i)==s2(j),f(i,j)=f(i-1,j-1),否则f(i,j)=f(i-1,j-1)+1
+
+ Note:
+    初始化时，dp[0][i]表示由空串转换成word2（即插入元素）的步骤
+            dp[j][0]表示由word1变成空串的步骤
+
  */
 public class editDistance {
     public static int minDistance(String word1, String word2) {
@@ -47,6 +52,7 @@ public class editDistance {
     public static void main(String[] args) {
         System.out.println(new editDistance().minDistance("a", ""));
         System.out.println(new editDistance().minDistance("a", "b"));
-        System.out.println(new editDistance().minDistance("a", "b"));
+        System.out.println(new editDistance().minDistance("a", "ba"));
+        System.out.println(new editDistance().minDistance("ba", "ba"));
     }
 }
