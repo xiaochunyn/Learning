@@ -80,12 +80,6 @@ public class editCost {
                 dp[i][j] = Math.min(dp[i][j], dp[i - 1][j] + dc);
             }
         }
-        for (int i = 0; i < row; i++){
-            for (int j = 0; j < col; j++) {
-                System.out.print(dp[i][j] + "\t");
-            }
-            System.out.println();
-        }
         return dp[row - 1][col - 1];
     }
 
