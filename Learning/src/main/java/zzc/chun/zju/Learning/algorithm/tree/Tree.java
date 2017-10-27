@@ -1,6 +1,9 @@
 package zzc.chun.zju.Learning.algorithm.tree;
 
+import java.util.Queue;
 import java.util.Stack;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * Created by Captain on 2017/10/15.
@@ -11,7 +14,7 @@ import java.util.Stack;
  *
  */
 public class Tree {
-    public class Node {
+    public static class Node {
         public int value;
         public Node left;
         public Node right;
@@ -26,7 +29,7 @@ public class Tree {
         if (head != null) {
             return;
         }
-        System.out.println(head.value + " ");
+        System.out.print(head.value + " ");
         preOrderRecur(head.left);
         preOrderRecur(head.right);
     }
@@ -37,7 +40,7 @@ public class Tree {
             return;
         }
         inOrderRecur(head.left);
-        System.out.println(head.value + " ");
+        System.out.print(head.value + " ");
         inOrderRecur(head.right);
     }
 
@@ -48,7 +51,7 @@ public class Tree {
         }
         postOrderRecur(head.left);
         postOrderRecur(head.right);
-        System.out.println(head.value + " ");
+        System.out.print(head.value + " ");
     }
 
     /**
@@ -67,7 +70,7 @@ public class Tree {
             stack.add(head);
             while (!stack.isEmpty()) {
                 head = stack.pop();
-                System.out.println(head.value);
+                System.out.print(head.value + " ");
                 if (head.right != null) {
                     stack.add(head.right);
                 }
@@ -101,10 +104,93 @@ public class Tree {
                 head = head.left;
             } else {
                 head = stack.pop();
-                System.out.println(head.value + " ");
+                System.out.print(head.value + " ");
                 head = head.right;
             }
         }
     }
 
+    /**
+     * Breadth First Search 广度优先搜索，从根节点开始沿着树的宽度搜索遍历
+     * 广度优先利用队列先进先去的特点，左子树先入队，然后右子树入队
+     */
+    public void breadFirstSearch(Node head) {
+        if (head == null) {
+            return;
+        }
+
+        Queue<Node> queue = new ConcurrentLinkedQueue<>();
+        queue.add(head);
+        while (!queue.isEmpty()) {
+            Node tree = queue.poll();
+            System.out.print(tree.value + " ");
+            if (tree.left != null) {
+                queue.add(tree.left);
+            }
+            if (tree.right != null) {
+                queue.add(tree.right);
+            }
+        }
+    }
+
+    /**
+     * Depth First Search 深度优先搜索，沿着树的深度遍历树的节点，经可能深的搜索树
+     * 的分支.　深度优先搜索二叉树是先访问根节点，然后遍历左子树接着遍历右子树．因此，
+     * 可以利用栈的先进后出的特点，先将右子树入栈，然后将左子树入栈，这样左子数就位于栈顶，
+     * 可以保证左子树先于右子树遍历．
+     */
+    public void depthFirstSearch(Node head) {
+        if (head == null) return;
+        Stack<Node> stack = new Stack<>();
+        stack.push(head);
+        while (!stack.isEmpty()) {
+            Node n = stack.pop();
+            System.out.print(n.value + " ");
+            if (n.right != null) {
+                stack.push(n.right);
+            }
+            if (n.left != null) {
+                stack.push(n.left);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(5);
+        head.left = new Node(3);
+        head.right = new Node(8);
+        head.left.left = new Node(2);
+        head.left.right = new Node(4);
+        head.left.left.left = new Node(1);
+        head.right.left = new Node(7);
+        head.right.left.left = new Node(6);
+        head.right.right = new Node(10);
+        head.right.right.left = new Node(9);
+        head.right.right.right = new Node(11);
+
+        // recursive
+        System.out.println("====================recursive=======================");
+        System.out.println("pre-order: ");
+        new Tree().preOrderRecur(head);
+        new Tree().preOrderUnRecur(head);
+        System.out.println();
+
+        System.out.println("in-order: ");
+        new Tree().inOrderRecur(head);
+        new Tree().inOrderUnRecur(head);
+        System.out.println();
+
+        System.out.println("pos-order: ");
+        new Tree().postOrderRecur(head);
+        System.out.println();
+
+        System.out.println("Breadth First Search: ");
+        new Tree().breadFirstSearch(head);
+        System.out.println();
+
+        System.out.println("Depth First Search: ");
+        new Tree().depthFirstSearch(head);
+
+        System.out.println();
+    }
 }
