@@ -100,6 +100,7 @@ public class MazeII {
                 d--;
                 if (distance[cx][cy] > d) {
                     distance[cx][cy] = d;
+                    // 如果小球未到达终点，将该点入队，否则不入队
                     if (cx != dest[0] || cy != dest[1]) {
                         queue.add(new Point(cx, cy));
                     }
